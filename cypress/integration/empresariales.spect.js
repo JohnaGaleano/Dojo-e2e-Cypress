@@ -21,9 +21,27 @@ describe('My first e2e testing', function (params) {
         .type('john.galeanoc@gmail.com')
         .should('have.value', 'john.galeanoc@gmail.com')
     })
+    
 
-    it('MELI Test', function(){
-        cy.visit('https://mercado-estefa.herokuapp.com/')
+    it('Search an iphone', function(){
+        cy.visit('http://localhost:4200/')
+        cy.pause()
+        cy.contains('Estefany')
+        cy.get('input')
+        .type('iphone 8 plus 64gb')
+        .should('have.value','iphone 8 plus 64gb')
+        cy.get('button')
+        .click()
+        cy.contains('iPhone')
+
+        cy.get('input')
+        .clear()
+        .type('Nikon D750')
+        .should('have.value','Nikon D750')
+        cy.get('button')
+        .click()
+        cy.contains('Nikon D750')
+        
     })
     
 })
